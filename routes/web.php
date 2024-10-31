@@ -19,4 +19,5 @@ Route::get('/', function () {
 });
 
 Route::get('/mahasiswa', [MahasiswaController::class, 'index']);
+Route::get('/mahasiswa/pendidikan/{key}', [MahasiswaController::class, 'pendidikan']);
 

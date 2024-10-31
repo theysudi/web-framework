@@ -1,20 +1,38 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Data Mahasiswa</title>
-</head>
-<body>
-    <table>
+@extends('layout.layout')
+
+@section('title', 'Data Mahasiswa')
+
+@section('content_header')
+    <div class="row">
+        <div class="col">
+            <h1>Data Mahasiswa</h1>
+        </div>
+        <div class="col">
+        </div>
+    </div>
+@stop
+
+@section('content')
+    <table class="table table-bordered">
         <thead>
             <tr>
-                <td>NIM</td>
-                <td>Nama</td>
-                <td>Kelas</td>
+                <th>No</th>
+                <th>NIM</th>
+                <th>Nama</th>
+                <th class="text-center">Aksi</th>
             </tr>
         </thead>
+        <tbody>
+            @foreach ($data as $key => $val)
+                <tr>
+                    <td>{{ ($key + 1) }}.</td>
+                    <td>{{ $val['nim'] }}</td>
+                    <td>{{ $val['nama'] }}</td>
+                    <td class="text-center">
+                        <a href="{{ url('mahasiswa/pendidikan/'. $key) }}" class="btn btn-sm btn-info">Riwayat Pendidikan</a>
+                    </td>
+                </tr>
+            @endforeach
+        </tbody>
     </table>
-</body>
-</html>
+@stop
