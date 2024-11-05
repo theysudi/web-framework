@@ -23,7 +23,7 @@
     <body class="antialiased">
         <div class="relative flex items-top justify-center min-h-screen bg-gray-100 dark:bg-gray-900 sm:items-center sm:pt-0">
             <div class="hidden fixed top-0 right-0 px-6 py-4 sm:block">
-                <a href="{{ url('/mahasiswa') }}" class="text-sm text-gray-700 dark:text-white-700 underline">Mahasiswa</a>
+                {{-- <a href="{{ url('/mahasiswa') }}" class="text-sm text-gray-700 dark:text-white-700 underline">Mahasiswa</a> --}}
             </div>
 
             <div class="max-w-6xl mx-auto sm:px-6 lg:px-8">
@@ -94,8 +94,8 @@
                 <div class="flex justify-center mt-4 sm:items-center sm:justify-between">
                     <div class="text-center text-sm text-gray-500 sm:text-left">
                         <div class="flex items-center">
-                            <a href="{{ url('/mahasiswa') }}" class="ml-1 underline">
-                                Mahasiswa
+                            <a href="{{ url('/hitung') }}" class="ml-1 underline">
+                                Masuk
                             </a>
                         </div>
                     </div>
