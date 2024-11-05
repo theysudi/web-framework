@@ -94,7 +94,7 @@
                 <div class="flex justify-center mt-4 sm:items-center sm:justify-between">
                     <div class="text-center text-sm text-gray-500 sm:text-left">
                         <div class="flex items-center">
-                            <a href="{{ url('/hitung') }}" class="ml-1 underline">
+                            <a href="{{ url('/mahasiswa') }}" class="ml-1 underline">
                                 Masuk
                             </a>
                         </div>
