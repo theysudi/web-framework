@@ -9,11 +9,15 @@ class Mahasiswa extends Model
 {
     use HasFactory;
 
-    protected $table = 'pk_inovasi';
+    protected $table = 'mahasiswa';
 
     protected $fillable = [
         'nim',
         'nama',
-        'kelas',
+        'jenis_kelamin',
+        'alamat',
+        'tanggal_lahir',
+        'jurusan',
+        'tahun_angkatan',
     ];
 }

@@ -1,6 +1,5 @@
 <?php
 
-use App\Http\Controllers\HitungController;
 use App\Http\Controllers\MahasiswaController;
 use Illuminate\Support\Facades\Route;
 
@@ -16,11 +15,12 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('home');
 });
 
-Route::get('/mahasiswa', [MahasiswaController::class, 'index']);
-Route::get('/mahasiswa/pendidikan/{key}', [MahasiswaController::class, 'pendidikan']);
+Route::controller(MahasiswaController::class)->prefix('mahasiswa')->group(function (){
+    Route::get('/', 'index');
+    Route::get('/store', 'indexStore');
+    Route::post('/store', 'store');
+});
 
-Route::get('/hitung', [HitungController::class, 'index']);
-Route::post('/hitung/luas-persegi-panjang', [HitungController::class, 'luasPersegiPanjang']);

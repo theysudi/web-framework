@@ -1,6 +1,7 @@
-<nav class="site-header sticky-top py-1">
-    <div class="container d-flex flex-column flex-md-row justify-content-between">
-        <a class="py-2 d-none d-md-inline-block" href="{{ url('mahasiswa') }}">Mahasiswa</a>
-        <a class="py-2 d-none d-md-inline-block" href="{{ url('hitung') }}">Kalkulator</a>
-    </div>
-</nav>
+<!-- Sidebar -->
+<div class="sidebar">
+    <h2 class="text-center">My App</h2>
+    <hr>
+    <a href="{{ url('/') }}"><i class="fa fa-home"></i> Home</a>
+    <a href="{{ url('/mahasiswa') }}"><i class="fa fa-user"></i> Mahasiswa</a>
+</div>
