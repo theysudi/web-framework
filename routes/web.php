@@ -22,5 +22,7 @@ Route::controller(MahasiswaController::class)->prefix('mahasiswa')->group(functi
     Route::get('/', 'index');
     Route::get('/store', 'indexStore');
     Route::post('/store', 'store');
+    Route::get('/update/{id}', 'indexUpdate');
+    Route::post('/update/{id}', 'update');
 });
 
