@@ -50,6 +50,8 @@
             padding: 20px;
         }
     </style>
+
+    @yield('css')
 </head>
 
 <body>
@@ -70,6 +72,7 @@
         const BASE_URL = "{{ url('/') }}"
     </script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    @yield('js')
 </body>
 
 </html>

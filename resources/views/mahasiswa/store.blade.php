@@ -13,15 +13,19 @@
     </div>
 @stop
 
-
 @section('content')
     <form method="POST" autocomplete="off">
         @csrf
         <div class="row">
             <div class="col-6">
                 <div class="form-group mb-3">
-                    <label class="fw-bold">NIM</label>
-                    <input type="text" name="nim" class="form-control">
+                    <label class="fw-bold {{ $errors->has('nim') ? 'is-invalid' : '' }}">NIM</label>
+                    <input type="text" name="nim" class="form-control {{ $errors->has('nim') ? 'is-invalid' : '' }}" value="{{ old('nim') }}">
+                    @if ($errors->has('nim'))
+                        <div class="invalid-feedback">
+                            {{ $errors->first('nim') }}
+                        </div>
+                    @endif
                 </div>
                 <div class="form-group mb-3">
                     <label class="fw-bold">Nama</label>
@@ -57,11 +61,19 @@
                     <label class="fw-bold">Tahun Angkatan</label>
                     <input type="text" name="tahun_angkatan" class="form-control">
                 </div>
-                
+
                 <div class="form-group mb-3 text-end">
                     <button type="submit" class="btn btn-primary col-2">Simpan</button>
                 </div>
             </div>
         </div>
     </form>
+@stop
+
+@section('css')
+    <style>
+        label.is-invalid {
+            color: var(--bs-form-invalid-color) !important;
+        }
+    </style>
 @stop

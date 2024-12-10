@@ -7,6 +7,11 @@ use Illuminate\Support\Facades\DB;
 
 class MahasiswaController extends Controller
 {
+    private $message = [
+        'required'      => 'Input :attribute harus diisi.',
+        'unique'        => 'Data :attribute sudah digunakan.',
+    ];
+
     public function index()
     {
         $data = DB::table('mahasiswa')->get();
@@ -23,6 +28,10 @@ class MahasiswaController extends Controller
 
     public function store(Request $request)
     {
+        $request->validate([
+            'nim'               => ['required', 'unique:mahasiswa,nim'],
+        ], $this->message);
+
         $data = [
             'nim'               => $request->nim,
             'nama'              => $request->nama,
