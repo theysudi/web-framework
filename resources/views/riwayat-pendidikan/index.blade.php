@@ -1,11 +1,11 @@
 @extends('layout.layout')
 
-@section('title', 'Data Mahasiswa')
+@section('title', 'Data Riwayat Pendidikan')
 
 @section('content_header')
     <div class="row">
         <div class="col">
-            <h1>Data Mahasiswa</h1>
+            <h1>Data Riwayat Pendidikan</h1>
         </div>
         <div class="col text-end">
             <a href="{{ url('mahasiswa/store') }}" class="btn btn-sm btn-primary mt-3">Tambah</a>
@@ -24,27 +24,23 @@
     <table class="table table-bordered">
         <thead>
             <tr>
-                <th>No</th>
                 <th>NIM</th>
                 <th>Nama</th>
-                <th>Jenis Kelamin</th>
-                <th>Jurusan</th>
-                <th>Tahun Angkatan</th>
+                <th>Jenjang</th>
+                <th>Nama Sekolah</th>
+                <th>Tahun</th>
                 <th class="text-center">Aksi</th>
             </tr>
         </thead>
         <tbody>
             @foreach ($data as $key => $val)
                 <tr>
-                    <td>{{ ($key + 1) }}.</td>
                     <td>{{ $val->nim }}</td>
                     <td>{{ $val->nama }}</td>
-                    <td>{{ $val->jenis_kelamin }}</td>
-                    <td>{{ $val->jurusan }}</td>
-                    <td>{{ $val->tahun_angkatan }}</td>
+                    <td>{{ $val->jenjang }}</td>
+                    <td>{{ $val->nama_sekolah }}</td>
+                    <td>{{ $val->tahun_masuk }}</td>
                     <td class="text-center">
-                        <a href="{{ url('riwayat-pendidikan/'. $val->id) }}" class="btn btn-sm btn-info m-1">Riwayat Pendidikan</a>
-                        <br>
                         <a href="{{ url('mahasiswa/update/'. $val->id) }}" class="btn btn-sm btn-warning">Ubah</a>
                         <a href="{{ url('mahasiswa/delete/'. $val->id) }}" class="btn btn-sm btn-danger">Hapus</a>
                     </td>

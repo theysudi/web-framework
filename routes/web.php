@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\MahasiswaController;
+use App\Http\Controllers\RiwayatPendidikanController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -24,5 +25,10 @@ Route::controller(MahasiswaController::class)->prefix('mahasiswa')->group(functi
     Route::post('/store', 'store');
     Route::get('/update/{id}', 'indexUpdate');
     Route::post('/update/{id}', 'update');
+    Route::get('/delete/{id}', 'delete');
+});
+
+Route::controller(RiwayatPendidikanController::class)->prefix('riwayat-pendidikan')->group(function (){
+    Route::get('/{mhs_id}', 'index');
 });
 

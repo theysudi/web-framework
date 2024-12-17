@@ -28,38 +28,68 @@
                     @endif
                 </div>
                 <div class="form-group mb-3">
-                    <label class="fw-bold">Nama</label>
-                    <input type="text" name="nama" class="form-control">
+                    <label class="fw-bold {{ $errors->has('nama') ? 'is-invalid' : '' }}">Nama</label>
+                    <input type="text" name="nama" class="form-control {{ $errors->has('nama') ? 'is-invalid' : '' }}" value="{{ old('nama') }}">
+                    @if ($errors->has('nama'))
+                        <div class="invalid-feedback">
+                            {{ $errors->first('nama') }}
+                        </div>
+                    @endif
                 </div>
                 <div class="form-group mb-3">
-                    <label class="fw-bold">Jenis Kelamin</label>
-                    <select name="jenis_kelamin" class="form-control">
-                        <option value="LAKI-LAKI">LAKI-LAKI</option>
-                        <option value="PEREMPUAN">PEREMPUAN</option>
+                    <label class="fw-bold {{ $errors->has('jenis_kelamin') ? 'is-invalid' : '' }}">Jenis Kelamin</label>
+                    <select name="jenis_kelamin" class="form-control {{ $errors->has('jenis_kelamin') ? 'is-invalid' : '' }}">
+                        <option {{ old('jenis_kelamin') == 'LAKI-LAKI' ? 'selected' : '' }} value="LAKI-LAKI">LAKI-LAKI</option>
+                        <option {{ old('jenis_kelamin') == 'PEREMPUAN' ? 'selected' : '' }} value="PEREMPUAN">PEREMPUAN</option>
                     </select>
+                    @if ($errors->has('jenis_kelamin'))
+                        <div class="invalid-feedback">
+                            {{ $errors->first('jenis_kelamin') }}
+                        </div>
+                    @endif
                 </div>
                 <div class="form-group mb-3">
-                    <label class="fw-bold">Alamat</label>
-                    <textarea name="alamat" rows="4" class="form-control"></textarea>
+                    <label class="fw-bold {{ $errors->has('alamat') ? 'is-invalid' : '' }}">Alamat</label>
+                    <textarea name="alamat" rows="4" class="form-control {{ $errors->has('alamat') ? 'is-invalid' : '' }}">{{ old('alamat') }}</textarea>
+                    @if ($errors->has('alamat'))
+                        <div class="invalid-feedback">
+                            {{ $errors->first('alamat') }}
+                        </div>
+                    @endif
                 </div>
                 <div class="form-group mb-3">
-                    <label class="fw-bold">Tanggal Lahir</label>
-                    <input type="date" name="tanggal_lahir" class="form-control">
+                    <label class="fw-bold {{ $errors->has('tanggal_lahir') ? 'is-invalid' : '' }}">Tanggal Lahir</label>
+                    <input type="date" name="tanggal_lahir" class="form-control {{ $errors->has('tanggal_lahir') ? 'is-invalid' : '' }}" value="{{ old('tanggal_lahir') }}">
+                    @if ($errors->has('tanggal_lahir'))
+                        <div class="invalid-feedback">
+                            {{ $errors->first('tanggal_lahir') }}
+                        </div>
+                    @endif
                 </div>
                 <div class="form-group mb-3">
-                    <label class="fw-bold">Jurusan</label>
-                    <select name="jurusan" class="form-control">
-                        <option value="TI-MDI">TI-MDI</option>
-                        <option value="TI-PAR">TI-PAR</option>
-                        <option value="TI-KAB">TI-KAB</option>
-                        <option value="RSK">RSK</option>
-                        <option value="DKV">DKV</option>
-                        <option value="BD">BD</option>
+                    <label class="fw-bold {{ $errors->has('jurusan') ? 'is-invalid' : '' }}">Jurusan</label>
+                    <select name="jurusan" class="form-control {{ $errors->has('jurusan') ? 'is-invalid' : '' }}">
+                        <option {{ old('jurusan') == 'TI-MDI' ? 'selected' : '' }} value="TI-MDI">TI-MDI</option>
+                        <option {{ old('jurusan') == 'TI-PAR' ? 'selected' : '' }} value="TI-PAR">TI-PAR</option>
+                        <option {{ old('jurusan') == 'TI-KAB' ? 'selected' : '' }} value="TI-KAB">TI-KAB</option>
+                        <option {{ old('jurusan') == 'RSK' ? 'selected' : '' }} value="RSK">RSK</option>
+                        <option {{ old('jurusan') == 'DKV' ? 'selected' : '' }} value="DKV">DKV</option>
+                        <option {{ old('jurusan') == 'BD' ? 'selected' : '' }} value="BD">BD</option>
                     </select>
+                    @if ($errors->has('jurusan'))
+                        <div class="invalid-feedback">
+                            {{ $errors->first('jurusan') }}
+                        </div>
+                    @endif
                 </div>
                 <div class="form-group mb-3">
-                    <label class="fw-bold">Tahun Angkatan</label>
-                    <input type="text" name="tahun_angkatan" class="form-control">
+                    <label class="fw-bold {{ $errors->has('tahun_angkatan') ? 'is-invalid' : '' }}">Tahun Angkatan</label>
+                    <input type="text" name="tahun_angkatan" class="form-control {{ $errors->has('tahun_angkatan') ? 'is-invalid' : '' }}" value="{{ old('tahun_angkatan') }}">
+                    @if ($errors->has('tahun_angkatan'))
+                        <div class="invalid-feedback">
+                            {{ $errors->first('tahun_angkatan') }}
+                        </div>
+                    @endif
                 </div>
 
                 <div class="form-group mb-3 text-end">
