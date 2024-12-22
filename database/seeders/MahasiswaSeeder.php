@@ -21,7 +21,7 @@ class MahasiswaSeeder extends Seeder
                 'jenis_kelamin'     => 'LAKI-LAKI',
                 'alamat'            => 'Jimbaran',
                 'tanggal_lahir'     => '1996-04-01',
-                'jurusan'           => 'TI-MDI',
+                'jurusan_id'        => 1,
                 'tahun_angkatan'    => '2014',
             ],
             [
@@ -30,7 +30,7 @@ class MahasiswaSeeder extends Seeder
                 'jenis_kelamin'     => 'LAKI-LAKI',
                 'alamat'            => 'Nusa Dua',
                 'tanggal_lahir'     => '1995-02-27',
-                'jurusan'           => 'RSK',
+                'jurusan_id'        => 4,
                 'tahun_angkatan'    => '2013',
             ],
             [
@@ -39,7 +39,7 @@ class MahasiswaSeeder extends Seeder
                 'jenis_kelamin'     => 'PEREMPUAN',
                 'alamat'            => 'Gianyar',
                 'tanggal_lahir'     => '1996-05-15',
-                'jurusan'           => 'TI-KAB',
+                'jurusan_id'        => 3,
                 'tahun_angkatan'    => '2014',
             ]
         ]);

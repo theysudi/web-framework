@@ -18,7 +18,10 @@ class MahasiswaController extends Controller
 
     public function index()
     {
-        $data = DB::table('mahasiswa')->get();
+        $data = DB::table('mahasiswa')
+            ->select(['mahasiswa.*', 'jurusan.nama_jurusan'])
+            ->join('jurusan', 'mahasiswa.jurusan_id', '=', 'jurusan.id')
+            ->get();
 
         return view('mahasiswa/index', [
             'data' => $data,
@@ -27,7 +30,11 @@ class MahasiswaController extends Controller
     
     public function indexStore()
     {
-        return view('mahasiswa/store');
+        $jurusan = DB::table('jurusan')->get();
+
+        return view('mahasiswa/store', [
+            'jurusan' => $jurusan,
+        ]);
     }
 
     public function store(Request $request)
@@ -38,7 +45,7 @@ class MahasiswaController extends Controller
             'jenis_kelamin'     => ['required', Rule::in(['LAKI-LAKI', 'PEREMPUAN'])],
             'tanggal_lahir'     => ['required', 'date'],
             'alamat'            => ['required'],
-            'jurusan'           => ['required', Rule::in(['TI-MDI', 'TI-PAR', 'TI-KAB', 'RSK', 'DKV', 'BD'])],
+            'jurusan_id'        => ['required'],
             'tahun_angkatan'    => ['required', 'integer', 'min:2000', 'max:3000'],
         ], $this->message);
 
@@ -48,7 +55,7 @@ class MahasiswaController extends Controller
             'jenis_kelamin'     => $request->jenis_kelamin,
             'tanggal_lahir'     => $request->tanggal_lahir,
             'alamat'            => $request->alamat,
-            'jurusan'           => $request->jurusan,
+            'jurusan_id'        => $request->jurusan_id,
             'tahun_angkatan'    => $request->tahun_angkatan,
         ];
 
@@ -66,20 +73,23 @@ class MahasiswaController extends Controller
     public function indexUpdate($id)
     {
         $data = DB::table('mahasiswa')->where('id', $id)->first();
+        $jurusan = DB::table('jurusan')->get();
+
         return view('mahasiswa/update', [
-            'data' => $data,
+            'data'      => $data,
+            'jurusan'   => $jurusan,
         ]);
     }
 
     public function update(Request $request, $id)
     {
         $request->validate([
-            'nim'               => ['required', 'unique:mahasiswa,nim'],
+            'nim'               => ['required', 'unique:mahasiswa,nim,'.$id],
             'nama'              => ['required'],
             'jenis_kelamin'     => ['required', Rule::in(['LAKI-LAKI', 'PEREMPUAN'])],
             'tanggal_lahir'     => ['required', 'date'],
             'alamat'            => ['required'],
-            'jurusan'           => ['required', Rule::in(['TI-MDI', 'TI-PAR', 'TI-KAB', 'RSK', 'DKV', 'BD'])],
+            'jurusan_id'        => ['required'],
             'tahun_angkatan'    => ['required', 'integer', 'min:2000', 'max:3000'],
         ], $this->message);
 
@@ -89,7 +99,7 @@ class MahasiswaController extends Controller
             'jenis_kelamin'     => $request->jenis_kelamin,
             'tanggal_lahir'     => $request->tanggal_lahir,
             'alamat'            => $request->alamat,
-            'jurusan'           => $request->jurusan,
+            'jurusan_id'        => $request->jurusan_id,
             'tahun_angkatan'    => $request->tahun_angkatan,
         ];
 

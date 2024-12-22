@@ -8,7 +8,7 @@
             <h1>Data Riwayat Pendidikan</h1>
         </div>
         <div class="col text-end">
-            <a href="{{ url('mahasiswa/store') }}" class="btn btn-sm btn-primary mt-3">Tambah</a>
+            <a href="{{ url('riwayat-pendidikan/store/'.$mhs_id) }}" class="btn btn-sm btn-primary mt-3">Tambah</a>
         </div>
     </div>
 @stop
@@ -37,12 +37,12 @@
                 <tr>
                     <td>{{ $val->nim }}</td>
                     <td>{{ $val->nama }}</td>
-                    <td>{{ $val->jenjang }}</td>
+                    <td>{{ $val->nama_jenjang }}</td>
                     <td>{{ $val->nama_sekolah }}</td>
-                    <td>{{ $val->tahun_masuk }}</td>
+                    <td>{{ $val->tahun_masuk }} - {{ $val->tahun_lulus }}</td>
                     <td class="text-center">
-                        <a href="{{ url('mahasiswa/update/'. $val->id) }}" class="btn btn-sm btn-warning">Ubah</a>
-                        <a href="{{ url('mahasiswa/delete/'. $val->id) }}" class="btn btn-sm btn-danger">Hapus</a>
+                        <a href="{{ url('riwayat-pendidikan/update/'. $val->id) }}" class="btn btn-sm btn-warning">Ubah</a>
+                        <a href="{{ url('riwayat-pendidikan/delete/'. $val->id) }}" class="btn btn-sm btn-danger">Hapus</a>
                     </td>
                 </tr>
             @endforeach

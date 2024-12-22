@@ -40,7 +40,7 @@
                     <td>{{ $val->nim }}</td>
                     <td>{{ $val->nama }}</td>
                     <td>{{ $val->jenis_kelamin }}</td>
-                    <td>{{ $val->jurusan }}</td>
+                    <td>{{ $val->nama_jurusan }}</td>
                     <td>{{ $val->tahun_angkatan }}</td>
                     <td class="text-center">
                         <a href="{{ url('riwayat-pendidikan/'. $val->id) }}" class="btn btn-sm btn-info m-1">Riwayat Pendidikan</a>

@@ -30,5 +30,7 @@ Route::controller(MahasiswaController::class)->prefix('mahasiswa')->group(functi
 
 Route::controller(RiwayatPendidikanController::class)->prefix('riwayat-pendidikan')->group(function (){
     Route::get('/{mhs_id}', 'index');
+    Route::get('/store/{mhs_id}', 'indexStore');
+    Route::post('/store/{mhs_id}', 'store');
 });
 

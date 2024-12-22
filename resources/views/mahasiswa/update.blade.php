@@ -68,18 +68,15 @@
                     @endif
                 </div>
                 <div class="form-group mb-3">
-                    <label class="fw-bold {{ $errors->has('jurusan') ? 'is-invalid' : '' }}">Jurusan</label>
-                    <select name="jurusan" class="form-control {{ $errors->has('jurusan') ? 'is-invalid' : '' }}">
-                        <option value="TI-MDI" {{ $data->jurusan == 'TI-MDI' ? 'selected' : '' }}>TI-MDI</option>
-                        <option value="TI-PAR" {{ $data->jurusan == 'TI-PAR' ? 'selected' : '' }}>TI-PAR</option>
-                        <option value="TI-KAB" {{ $data->jurusan == 'TI-KAB' ? 'selected' : '' }}>TI-KAB</option>
-                        <option value="RSK" {{ $data->jurusan == 'RSK' ? 'selected' : '' }}>RSK</option>
-                        <option value="DKV" {{ $data->jurusan == 'DKV' ? 'selected' : '' }}>DKV</option>
-                        <option value="BD" {{ $data->jurusan == 'BD' ? 'selected' : '' }}>BD</option>
+                    <label class="fw-bold {{ $errors->has('jurusan_id') ? 'is-invalid' : '' }}">Jurusan</label>
+                    <select name="jurusan_id" class="form-control {{ $errors->has('jurusan_id') ? 'is-invalid' : '' }}">
+                        @foreach ($jurusan as $item)
+                            <option {{ $data->jurusan_id == $item->id ? 'selected' : '' }} value="{{ $item->id }}">{{ $item->nama_jurusan }}</option>
+                        @endforeach
                     </select>
-                    @if ($errors->has('jurusan'))
+                    @if ($errors->has('jurusan_id'))
                         <div class="invalid-feedback">
-                            {{ $errors->first('jurusan') }}
+                            {{ $errors->first('jurusan_id') }}
                         </div>
                     @endif
                 </div>
